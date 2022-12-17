@@ -20,3 +20,6 @@ spring:
           - Path=/api/items/**
         filters:
           - StripPrefix=2
+          - AddRequestHeader=token-request, 654321
+          - AddResponseHeader=token-response, 78654321
+          - AddRequestParameter=name, carolina

@@ -1,6 +1,7 @@
 package com.trainingbdi.springboot.app.products.controller;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,17 +36,19 @@ public class ProductsController {
 	}
 	
 	@GetMapping("/products/{id}")
-	public Products details(@PathVariable Long id) {
+	public Products details(@PathVariable Long id) throws InterruptedException {
+		
+		if(id.equals(10L)){
+			throw new IllegalStateException("Product not found");
+		}
+		if(id.equals(7L)) {
+			TimeUnit.SECONDS.sleep(5L);
+		}
+		
 		Products products=productsService.findById(id);
 		products.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
 		//products.setPort(port);
 		
-		/*try {
-			Thread.sleep(2000L);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
 		return products;
 	}
 	

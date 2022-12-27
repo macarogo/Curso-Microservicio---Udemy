@@ -58,6 +58,6 @@
     <fullyQualifiedTypeName name="org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JCircuitBreakerFactory"/>
     <fullyQualifiedTypeName name="org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JConfigBuilder"/>
     <fullyQualifiedTypeName name="io.github.resilience4j.circuitbreaker.CircuitBreakerConfig"/>
-    <fullyQualifiedTypeName name="java.time.Duration"/>
     <fullyQualifiedTypeName name="io.github.resilience4j.timelimiter.TimeLimiterConfig"/>
+    <fullyQualifiedTypeName name="java.time.Duration"/>
 </qualifiedTypeNameHistroy>

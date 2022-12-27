@@ -40,7 +40,7 @@ public class ItemController {
 	@GetMapping("/products/{id}/amount/{amount}")
 	public Item detail(@PathVariable Long id, @PathVariable Integer amount) {
 		return cbFactory.create("items")
-				.run(()-> itemService.findBy(id, amount)/*, e -> metodoAlternativo(id, amount, e)*/);
+				.run(()-> itemService.findBy(id, amount), e -> metodoAlternativo(id, amount, e));
 	}
 	
 	public Item metodoAlternativo(@PathVariable Long id, @PathVariable Integer amount, Throwable e) {

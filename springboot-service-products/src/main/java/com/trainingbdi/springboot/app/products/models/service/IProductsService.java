@@ -8,4 +8,6 @@ public interface IProductsService {
 	
 	public List<Products>findAll();
 	public Products findById(Long id);
+	public Products save(Products products);
+	public void deleteById(Long id);
 }

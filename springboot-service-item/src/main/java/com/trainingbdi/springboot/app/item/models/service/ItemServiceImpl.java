@@ -7,13 +7,16 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.trainingbdi.springboot.app.item.models.Item;
 import com.trainingbdi.springboot.app.item.models.Products;
 
-@Service
+@Service("serviceRestTemplate")
 public class ItemServiceImpl implements ItemService {
 
 	@Autowired
@@ -31,6 +34,32 @@ public class ItemServiceImpl implements ItemService {
 		pathVarible.put("id", id.toString());
 		Products products= clientRest.getForObject("http://service-products/products/{id}", Products.class, pathVarible);
 		return new Item(products, amount);
+	}
+
+	@Override
+	public Products save(Products products) {
+		HttpEntity<Products> body= new HttpEntity<Products>(products);
+		ResponseEntity<Products> response=clientRest.exchange("http://service-products/create", HttpMethod.POST, body, Products.class);
+		Products productsResponse= response.getBody();
+		return productsResponse;
+	}
+
+	@Override
+	public Products update(Products products, Long id) {
+		HttpEntity<Products> body= new HttpEntity<Products>(products);
+		Map<String, String> pathVarible= new HashMap<String, String>();
+		pathVarible.put("id", id.toString());
+		ResponseEntity<Products> response= clientRest.exchange("http://service-products/update/{id}", 
+				HttpMethod.PUT, body, Products.class,pathVarible);
+		return response.getBody();
+	}
+
+	@Override
+	public void delete(Long id) {
+		Map<String, String> pathVarible= new HashMap<String, String>();
+		pathVarible.put("id", id.toString());
+		clientRest.delete("http://service-products/delete/{id}", pathVarible);
+		
 	}
 
 }

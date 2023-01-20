@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.trainingbdi.springboot.app.item.models.Item;
-import com.trainingbdi.springboot.app.item.models.Products;
+import com.trainingbdi.springboot.app.commons.models.entity.Products;
 import com.trainingbdi.springboot.app.item.models.service.ItemService;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;

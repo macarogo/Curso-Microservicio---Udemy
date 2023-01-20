@@ -2,7 +2,7 @@ package com.trainingbdi.springboot.app.products.models.service;
 
 import java.util.List;
 
-import com.trainingbdi.springboot.app.products.models.entity.Products;
+import com.trainingbdi.springboot.app.commons.models.entity.Products;
 
 public interface IProductsService {
 	

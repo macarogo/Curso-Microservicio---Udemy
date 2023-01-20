@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.trainingbdi.springboot.app.products.models.entity.Products;
+import com.trainingbdi.springboot.app.commons.models.entity.Products;
 import com.trainingbdi.springboot.app.products.models.repository.ProductsRepository;
 
 @Service

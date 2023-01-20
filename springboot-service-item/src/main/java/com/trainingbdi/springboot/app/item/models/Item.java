@@ -1,5 +1,7 @@
 package com.trainingbdi.springboot.app.item.models;
 
+import com.trainingbdi.springboot.app.commons.models.entity.Products;
+
 public class Item {
 
 	private Products products;

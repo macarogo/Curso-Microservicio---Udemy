@@ -3,7 +3,7 @@ package com.trainingbdi.springboot.app.item.models.service;
 import java.util.List;
 
 import com.trainingbdi.springboot.app.item.models.Item;
-import com.trainingbdi.springboot.app.item.models.Products;
+import com.trainingbdi.springboot.app.commons.models.entity.Products;
 
 public interface ItemService {
 	
